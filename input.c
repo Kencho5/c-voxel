@@ -1,7 +1,6 @@
+#include "header.h"
 #include </opt/homebrew/include/GL/glut.h>
 #include <stdlib.h>
-
-void moveCamera();
 
 void keyPressed(unsigned char key, int x, int y) {
   switch (key) {

@@ -1,6 +1,10 @@
 #include </opt/homebrew/include/GL/glut.h>
 #include <stdio.h>
 
+float cameraX = 5.0f;
+float cameraY = 10.0f;
+float cameraZ = 5.0f;
+
 void display() {
   // Clear the color and depth buffers
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -13,7 +17,7 @@ void display() {
   // Set up the view transformation (position and orientation of the camera)
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
-  gluLookAt(5, 10, 5, 0, 0, 0, 0, 1, 0);
+  gluLookAt(cameraX, cameraY, cameraZ, 0, 0, 0, 0, 1, 0);
 
   // Rendering code for the cube and ground plane
   glBegin(GL_QUADS);
@@ -69,4 +73,7 @@ void display() {
   glutSwapBuffers();
 }
 
-void moveCamera() { printf("asdaa"); }
+void moveCamera() {
+  gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
+  glutPostRedisplay();
+}
