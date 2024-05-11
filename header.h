@@ -8,8 +8,7 @@ extern float cameraY;
 extern float cameraZ;
 
 void keyPressed(unsigned char key, int x, int y);
-void specialKeyPress(int key, int x, int y);
+void moveCamera(int key, int x, int y);
 void display();
-void moveCamera();
 
 #endif

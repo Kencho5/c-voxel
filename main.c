@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 
   glutDisplayFunc(display);
   glutKeyboardFunc(keyPressed);
-  glutSpecialFunc(specialKeyPress);
+  glutSpecialFunc(moveCamera);
 
   glutMainLoop();
   return 0;

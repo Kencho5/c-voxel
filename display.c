@@ -72,8 +72,3 @@ void display() {
 
   glutSwapBuffers();
 }
-
-void moveCamera() {
-  gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
-  glutPostRedisplay();
-}
