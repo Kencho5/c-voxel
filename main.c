@@ -3,6 +3,7 @@
 
 void display();
 void keyPressed(unsigned char key, int x, int y);
+void specialKeyPress(int key, int x, int y);
 
 int main(int argc, char **argv) {
   glutInit(&argc, argv);
@@ -14,6 +15,8 @@ int main(int argc, char **argv) {
 
   glutDisplayFunc(display);
   glutKeyboardFunc(keyPressed);
+  glutSpecialFunc(specialKeyPress);
+
   glutMainLoop();
   return 0;
 }

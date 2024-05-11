@@ -1,4 +1,5 @@
 #include </opt/homebrew/include/GL/glut.h>
+#include <stdio.h>
 
 void display() {
   // Clear the color and depth buffers
@@ -67,3 +68,5 @@ void display() {
 
   glutSwapBuffers();
 }
+
+void moveCamera() { printf("asdaa"); }
