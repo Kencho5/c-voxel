@@ -3,9 +3,11 @@
 
 #include </opt/homebrew/include/GL/glut.h>
 
-extern float cameraX;
-extern float cameraY;
-extern float cameraZ;
+extern float camX;
+extern float camY;
+extern float camZ;
+extern float camRotX;
+extern float camRotY;
 
 void keyPressed(unsigned char key, int x, int y);
 void moveCamera(int key, int x, int y);

@@ -1,9 +1,8 @@
 #include </opt/homebrew/include/GL/glut.h>
-#include <stdio.h>
 
-float cameraX = 5.0f;
-float cameraY = 10.0f;
-float cameraZ = 5.0f;
+// Camera position and rotation
+float camX = 0.0f, camY = 1.0f, camZ = 5.0f;
+float camRotX = 0.0f, camRotY = 0.0f;
 
 void display() {
   // Clear the color and depth buffers
@@ -17,11 +16,15 @@ void display() {
   // Set up the view transformation (position and orientation of the camera)
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
-  gluLookAt(cameraX, cameraY, cameraZ, 0, 0, 0, 0, 1, 0);
 
-  // Rendering code for the cube and ground plane
+  // Apply camera rotation
+  glRotatef(camRotX, 1.0f, 0.0f, 0.0f);
+  glRotatef(camRotY, 0.0f, 1.0f, 0.0f);
+
+  // Apply camera position
+  glTranslatef(-camX, -camY, -camZ);
+
   glBegin(GL_QUADS);
-
   // Cube
   // Front face
   glColor3f(1.0f, 0.0f, 0.0f); // Red
