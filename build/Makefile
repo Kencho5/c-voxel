@@ -4,7 +4,7 @@ CFLAGS = -framework OpenGL -framework GLUT -L/opt/homebrew/lib -lGLEW -I/opt/hom
 SRCDIR = ..
 BUILDDIR = .
 
-SOURCES = $(SRCDIR)/main.c $(SRCDIR)/display.c $(SRCDIR)/input.c
+SOURCES = $(SRCDIR)/main.c $(SRCDIR)/display.c $(SRCDIR)/fps.c $(SRCDIR)/input.c
 
 TARGET = $(BUILDDIR)/main
 

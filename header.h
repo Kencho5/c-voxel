@@ -12,5 +12,7 @@ extern float camRotY;
 void keyPressed(unsigned char key, int x, int y);
 void moveCamera(int key, int x, int y);
 void display();
+void calculateFPS();
+void update(int value);
 
 #endif

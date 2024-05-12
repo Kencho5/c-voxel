@@ -10,6 +10,8 @@ int main(int argc, char **argv) {
   // Enable depth testing
   glEnable(GL_DEPTH_TEST);
 
+  glutTimerFunc(0, update, 0);
+
   glutDisplayFunc(display);
   glutKeyboardFunc(keyPressed);
   glutSpecialFunc(moveCamera);
