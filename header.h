@@ -14,5 +14,6 @@ void moveCamera(int key, int x, int y);
 void display();
 void calculateFPS();
 void update(int value);
+void initVBOs();
 
 #endif

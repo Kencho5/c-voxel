@@ -5,6 +5,8 @@ int main(int argc, char **argv) {
   glutInitWindowSize(800, 600);
   glutCreateWindow("Test");
 
+  initVBOs();
+
   // Enable depth testing
   glEnable(GL_DEPTH_TEST);
 
