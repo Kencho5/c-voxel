@@ -1,4 +1,4 @@
-#include </opt/homebrew/include/GL/glut.h>
+#include "header.h"
 #include <stdio.h>
 
 // Variables to track FPS
@@ -24,6 +24,6 @@ void calculateFPS() {
 // Function called for each frame
 void update(int value) {
   glutPostRedisplay();
-  glutTimerFunc(0, update, 0); // No FPS cap
+  glutTimerFunc(0, update, 16); // No FPS cap
   calculateFPS();
 }

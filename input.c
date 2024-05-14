@@ -1,11 +1,10 @@
 #include "header.h"
-#include </opt/homebrew/include/GL/glut.h>
 #include <math.h>
 #include <stdlib.h>
 
 // Movement speed and rotation speed
 float moveSpeed = 0.8f;
-float rotSpeed = 2.0f;
+float rotSpeed = 10.0f;
 
 void keyPressed(unsigned char key, int x, int y) {
   switch (key) {

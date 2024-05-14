@@ -1,6 +1,4 @@
 #include "header.h"
-#include </opt/homebrew/include/GL/glut.h>
-#include </opt/homebrew/include/GLFW/glfw3.h>
 
 int main(int argc, char **argv) {
   glutInit(&argc, argv);

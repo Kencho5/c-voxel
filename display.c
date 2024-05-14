@@ -1,4 +1,4 @@
-#include </opt/homebrew/include/GL/glut.h>
+#include "header.h"
 
 // Camera position and rotation
 float camX = 0.0f, camY = 1.0f, camZ = 5.0f;
