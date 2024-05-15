@@ -3,40 +3,88 @@
 // Define your vertex data for the entire cube
 GLfloat cubeVertices[] = {
     // Front face
-    -1.0f, 0.0f, 1.0f, // Vertex 1
-    1.0f, 0.0f, 1.0f,  // Vertex 2
-    1.0f, 2.0f, 1.0f,  // Vertex 3
-    -1.0f, 2.0f, 1.0f, // Vertex 4
+    -0.5f,
+    0.0f,
+    0.5f,
+    0.5f,
+    0.0f,
+    0.5f,
+    0.5f,
+    1.0f,
+    0.5f,
+    -0.5f,
+    1.0f,
+    0.5f,
 
     // Back face
-    -1.0f, 0.0f, -1.0f, // Vertex 5
-    1.0f, 0.0f, -1.0f,  // Vertex 6
-    1.0f, 2.0f, -1.0f,  // Vertex 7
-    -1.0f, 2.0f, -1.0f, // Vertex 8
+    -0.5f,
+    0.0f,
+    -0.5f,
+    0.5f,
+    0.0f,
+    -0.5f,
+    0.5f,
+    1.0f,
+    -0.5f,
+    -0.5f,
+    1.0f,
+    -0.5f,
 
     // Top face
-    -1.0f, 2.0f, 1.0f,  // Vertex 4
-    1.0f, 2.0f, 1.0f,   // Vertex 3
-    1.0f, 2.0f, -1.0f,  // Vertex 7
-    -1.0f, 2.0f, -1.0f, // Vertex 8
+    -0.5f,
+    1.0f,
+    0.5f,
+    0.5f,
+    1.0f,
+    0.5f,
+    0.5f,
+    1.0f,
+    -0.5f,
+    -0.5f,
+    1.0f,
+    -0.5f,
 
     // Bottom face
-    -1.0f, 0.0f, 1.0f,  // Vertex 1
-    1.0f, 0.0f, 1.0f,   // Vertex 2
-    1.0f, 0.0f, -1.0f,  // Vertex 6
-    -1.0f, 0.0f, -1.0f, // Vertex 5
+    -0.5f,
+    0.0f,
+    0.5f,
+    0.5f,
+    0.0f,
+    0.5f,
+    0.5f,
+    0.0f,
+    -0.5f,
+    -0.5f,
+    0.0f,
+    -0.5f,
 
     // Right face
-    1.0f, 0.0f, 1.0f,  // Vertex 2
-    1.0f, 0.0f, -1.0f, // Vertex 6
-    1.0f, 2.0f, -1.0f, // Vertex 7
-    1.0f, 2.0f, 1.0f,  // Vertex 3
+    0.5f,
+    0.0f,
+    0.5f,
+    0.5f,
+    0.0f,
+    -0.5f,
+    0.5f,
+    1.0f,
+    -0.5f,
+    0.5f,
+    1.0f,
+    0.5f,
 
     // Left face
-    -1.0f, 0.0f, 1.0f,  // Vertex 1
-    -1.0f, 0.0f, -1.0f, // Vertex 5
-    -1.0f, 2.0f, -1.0f, // Vertex 8
-    -1.0f, 2.0f, 1.0f,  // Vertex 4
+    -0.5f,
+    0.0f,
+    0.5f,
+    -0.5f,
+    0.0f,
+    -0.5f,
+    -0.5f,
+    1.0f,
+    -0.5f,
+    -0.5f,
+    1.0f,
+    0.5f,
 };
 
 // Define your color data for the entire cube
@@ -127,8 +175,8 @@ GLfloat cubeColors[] = {
 };
 
 // Define vertex data for the ground plane
-GLfloat groundVertices[] = {-5.0f, 0.0f, -5.0f, -5.0f, 0.0f, 5.0f,
-                            5.0f,  0.0f, 5.0f,  5.0f,  0.0f, -5.0f};
+GLfloat groundVertices[] = {-50.0f, 0.0f, -50.0f, -50.0f, 0.0f, 50.0f,
+                            50.0f,  0.0f, 50.0f,  50.0f,  0.0f, -50.0f};
 
 // VBO IDs
 GLuint vboVertices, vboColors;
@@ -139,6 +187,8 @@ GLuint vboGroundVertices;
 // Camera position and rotation
 float camX = 0.0f, camY = 1.0f, camZ = 5.0f;
 float camRotX = 0.0f, camRotY = 0.0f;
+
+int cubeNum = 100;
 
 void initVBOs() {
   // Generate VBO IDs
@@ -192,8 +242,15 @@ void display() {
   glBindBuffer(GL_ARRAY_BUFFER, vboColors);
   glColorPointer(3, GL_FLOAT, 0, 0);
 
-  // Draw the cube
-  glDrawArrays(GL_QUADS, 0, 24); // 6 faces * 4 vertices per face
+  // Draw multiple cubes
+  for (float x = 0; x < cubeNum; x++) {
+    for (float j = 0; j < cubeNum; j++) {
+      glPushMatrix(); // Save the current transformation matrix
+      glTranslatef(x * 3, 0.0f, j * 3); // Translate along the x-axis
+      glDrawArrays(GL_QUADS, 0, 24);    // Draw the cube
+      glPopMatrix(); // Restore the previous transformation matrix
+    }
+  }
 
   // Cleanup
   glDisableClientState(GL_VERTEX_ARRAY);
